@@ -1,10 +1,21 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: "GitHubActions.com Result Reporter"
+description: "Report Results for actions started using GitHubActions.com. This action will never fail, so use freely without risk."
+author: "Derek Kershner"
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  trigger_result_id:
+    description: "The ID for the trigger result being reported. This typically is at github.event.client_payload.triggerResult.triggerResultId"
+    required: true
+  event_result_id:
+    description: "The ID for the individual event being reported. This typically is at github.event.client_payload.triggerResult.eventResultId"
+    required: true
+  status_code:
+    description: "A status to update to. Valid values: success, processing, failure"
+    default: "success"
+    required: false
+  status_text:
+    description: "A string to describe the status code. This is optional, but should be short (max 25 chars)."
+    default: "Success!"
+    required: false
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"

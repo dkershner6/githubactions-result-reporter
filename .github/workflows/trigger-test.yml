@@ -1,0 +1,16 @@
+on:
+  repository_dispatch:
+    event_types: [test]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Self
+        uses: ./
+        id: githubactions-result-reporter
+        with:
+          trigger_result_id: '${{ github.event.client_payload.triggerResult.triggerResultId }}'
+          event_result_id: '${{ github.event.client_payload.triggerResult.eventResultId }}'
+          status_code: 'success'
+          status_text: 'Test worked.'
