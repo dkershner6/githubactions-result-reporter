@@ -1,8 +1,8 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
+  "name": "githubactions-result-reporter",
+  "version": "1.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "Report Results for actions started using GitHubActions.com. This action will never fail, so use freely without risk.",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -10,7 +10,7 @@
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/**/*.ts",
     "pack": "ncc build",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "all": "npm run build && npm run format && npm run lint && npm run pack && npm test"
   },
   "repository": {
@@ -22,10 +22,11 @@
     "node",
     "setup"
   ],
-  "author": "YourNameOrOrganization",
+  "author": "Derek Kershner",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.4"
+    "@actions/core": "^1.2.4",
+    "axios": "^0.19.2"
   },
   "devDependencies": {
     "@types/jest": "^26.0.0",
