@@ -1,6 +1,6 @@
 {
   "name": "githubactions-result-reporter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "Report Results for actions started using GitHubActions.com. This action will never fail, so use freely without risk.",
   "main": "lib/main.js",
